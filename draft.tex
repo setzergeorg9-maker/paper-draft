@@ -1,0 +1,151 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{jheppub}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx,fancybox,float,comment,bm}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{dsfont}
+\usepackage{physics}
+%\usepackage{showkeys}
+\usepackage{ulem}
+
+\title{Timelike entanglement measures for the double-scaled SYK model}
+
+\author[a]{Johanna Erdmenger,}
+\author[a]{Maximilian Gaschler,}
+\author[a]{Jonathan Karl,}
+\author[b]{Arnab Kundu,}
+\author[a]{Georg Setzer}
+\date{}
+\affiliation[a]{Institute for Theoretical Physics and Astrophysics,
+Julius-Maximilians-Universität Würzburg, Am Hubland, 97074 Würzburg, Germany}
+
+\abstract{abstract}
+
+\begin{document}
+\maketitle
+\newpage
+\section{Introduction}
+
+
+
+\section{A spacetime density kernel for the DSSYK model}
+
+
+Given a Hilbert space $\mathcal{H}$ with density matrix $\rho$, time evolution $U_t = e^{-iHt}$,
+and a bipartition $\mathcal{H} = \mathcal{H}_A \otimes \mathcal{H}_B$ with matrix unit bases
+$\hat{E}^A_{ij} = \ketbra{i}{j} \otimes \mathbb{1}_B$ and
+$\hat{E}^B_{kl} = \mathbb{1}_A \otimes \ketbra{k}{l} $,
+
+
+\subsection{Definition and properties of the spacetime density kernel}
+For two subregions in our Hilbert space we introduce the generalized spacetime density kernel GSDK $T_{AB}$ as the timelike entanglement equivalent to the normal density matrix $\rho$. The kernel encodes all time dependency of our theory and for the two-time correlators we can write
+\begin{align}
+	 \mathrm{Tr} \left[ T_{AB} (t) (O_{A} \otimes O_{B} ) \right] = \mathrm{Tr} \left[ \rho \ O_{A} U^{\dagger}_{t} O_{B} U_{t} \right].
+	 \label{eq:GSDK_Def}
+\end{align}
+Furthermore it is convenient to define the components of $T_{AB}$ which we will call the response tensor
+\begin{align}
+	T_{AB}(t) = \sum_{i,j,k,l} C_{ij;kl} (t) E_{ji}^{A} \otimes E_{lk}^{B}.
+	\label{eq:}
+\end{align}
+In this way the two-time correlator from \eqref{eq:GSDK_Def} becomes a simple sum over the operator components
+\begin{align}
+    \mathcal{L}_t(O_A, O_B)
+    = \text{Tr}\left[\rho\,O_A\,U_t^\dagger\,O_B\,U_t\right]
+    = \sum_{i,j,k,l} C_{ij;kl}(t)\,O^{(A)}_{ij}\,O^{(B)}_{kl},
+    \label{eq:correlator_from_SDK}
+\end{align}
+where $O^{(A)}_{ij} = \langle i|O_A|j\rangle$ and $O^{(B)}_{kl} = \langle k|O_B|l\rangle$
+are the matrix elements in the chosen basis.
+We calculate the response tensor as the trace
+\begin{align}
+    C_{ij;kl}(t) = \text{Tr}\left[\rho\,\hat{E}^A_{ij}\,U_t^\dagger\,\hat{E}^B_{kl}\,U_t\right].
+    \label{eq:SDK_def}
+\end{align}
+
+\subsection{Overview of the double-scaled SYK model}
+
+The SYK model is consists of $N$ Majorana fermions which are coupled by a a random parameter $J$ in an $p$-body interaction.
+\begin{align}
+	H_{SYK} = i^{p/2} \sum_{i_1...i_p} J_{i_1 \dots i_p} \psi_{i_1} \dots \psi_{i_p}.
+	\label{eq:SYK_Hamiltonian}
+\end{align}
+In the double scaling limit the model is exactly solvable. We take
+\begin{align}
+	N \rightarrow \infty  \qquad p \rightarrow \infty,
+\end{align}
+while keeping 
+\begin{align}
+	\lambda = \frac{2 p^2}{N} = \mathrm{const.}
+	\label{eq:lambda}
+\end{align}
+constant. We also define the parameter $q = e^{-\lambda}$, which is used as the deformation parameter in the later part.\\
+In this limit the moments of the Hamiltonian 
+\begin{align}
+    m_{k} = \ev{\mathrm{Tr}H^{k}}_{J} 
+\end{align}
+can be calculated as a sum over chord diagrams as showed in e.g. \cite{berkooz_towards_2018,berkooz_chord_2018}. By evaluating this sum combinatorically we go to an auxiliary Hilbert space of open chord states.
+With states $\ket{l}$ as the basis of the chord number states we can define the transfer matrix 
+\begin{align}
+    T = 
+    \begin{pmatrix}
+        0 & 1 & 0 & \dots \\
+        1 & 0 & \frac{}{} \\
+    \end{pmatrix}
+\end{align}
+
+%The moments of the Hamiltonian are calculated by summing all the possible chord diagrams with the respective number of Hamiltonians. For each intersection of Hamiltonian chords one assigns powers of $q$ to the diagram (fig. \ref{fig:Chord_Diag_ex}).
+%\begin{figure}
+%%Example Chord diagram
+%\label{fig:Chord_Diag_ex}
+%\end{figure}
+%
+%
+%\begin{align}
+%    m_k = \sum_\text{chord diagrams} q^{\#(H \cap H)}
+%    \nonumber
+%\end{align}
+
+\subsection{Derivation of the DSSYK spacetime density kernel}
+
+
+\begin{align}
+    C_{ij;kl}(t) = 
+    \ev{0|\rho|i} \int \frac{d\theta d\phi}{(2\pi)^2} \ \mu(\theta) \mu(\phi) \
+    e^{-i t(E(\theta)-E(\phi))} 
+    \frac{H_j(\cos \theta |q) H_k(\cos \phi|q)}{\sqrt{(q;q)_j (q;q)_k}} \ 
+    \frac{H_l(\cos\theta |q)}{\sqrt{(q;q)_l}}
+\nonumber \end{align}
+
+\subsection{Relation to the two-point function}
+\section{Numerical results}
+\subsection{Timelike entanglement measures}
+The spacetime density kernel allows us to study correlations in time, since it encodes the dynamics of different time-slices in one operator. Multiple measures, which quantify these correlations, can be extracted from the spacetime density kernel $T_{AB}(t)$. The goal of this section is to numerically calculate these quantities, which were introduced in \cite{Das:2026ifj}, for the double-scaled SYK model. It is important to note that $T_{AB}(t)$ is not necessarily Hermitian, but $\text{Tr}\ T_{AB}(t)=1$ always holds. Firstly, we aim to calculate the Tsallis entropy
+\begin{equation}
+    Z_n(t)=\text{Tr} [T_{AB}(t)^n],
+\end{equation}
+while we mostly focus on the $n=2$ case. We also investigate the Schatten $p$-norms of $T_{AB}$, which are defined by 
+\begin{equation}
+    \|M\|_p=\text{Tr}\left((M^\dagger M)^{p/2}\right)^{1/p}.
+\end{equation}
+In particular, we are interested in the Frobenius norm 
+\begin{equation}
+    \|T_{AB}(t)\|_2^2=\text{Tr}\left[T_{AB}(t)T^\dagger_{AB}(t)\right].
+\end{equation}
+In order to quantify the non-Hermiticity of the spacetime density kernel, we also study the entanglement $p$-imagitivity 
+\begin{equation}
+    \mathcal{I}_p(t)=\|T_{AB}(t)-T^\dagger_{AB}(t)\|_p.
+\end{equation}
+Here, we focus again on the case $p=2$, since $\mathcal{I}_2(t)$ controls causal influence: it is nonzero iff signaling between A and B is possible.\\
+Another important quantity which we will consider is the kernel negativity $\mathcal{N}_H(t)$, which quantifies the spectral weight of the Hermitian part $H_{AB}(t)\equiv(T_{AB}+T^\dagger_{AB})/2$ of the spacetime density kernel. It is defined by
+\begin{equation}
+    \mathcal{N}_H(t)=\sum_{\mu_\alpha(t)<0}|\mu_\alpha(t)|,
+\end{equation}
+where $\{\mu_\alpha(t)\}$ are the eigenvalues of $H_{AB}(t)$.
+\subsection{Spectral form factor}
+\newpage
+\bibliographystyle{JHEP}
+\bibliography{ref}
+\end{document}

@@ -1,0 +1,319 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{physics}
+\geometry{margin=1in}
+
+\renewcommand{\tr}{\mathrm{Tr}}
+\newcommand{\dS}{\mathrm{dS}}
+\newcommand{\phys}{\mathrm{phys}}
+\renewcommand{\qq}[1]{(#1;\,q)_\infty}
+
+\title{Spacetime Density Kernel and the DSSYK Two-Point Function}
+\author{Max, Georg}
+\date{April 2026}
+
+\begin{document}
+\maketitle
+
+\section{Setup: the Spacetime Density Kernel}
+
+Given a Hilbert space $\mathcal{H}$ with density matrix $\rho$, time evolution $U_t = e^{-iHt}$,
+and a bipartition $\mathcal{H} = \mathcal{H}_A \otimes \mathcal{H}_B$ with matrix unit bases
+$\hat{E}^A_{ij} = |i\rangle\langle j| \otimes \mathbf{1}_B$ and
+$\hat{E}^B_{kl} = \mathbf{1}_A \otimes |k\rangle\langle l|$,
+the \emph{spacetime density kernel} (SDK) coefficients are defined by
+\begin{equation}
+    C_{ij;kl}(t) = \tr\!\left[\rho\,\hat{E}^A_{ij}\,U_t^\dagger\,\hat{E}^B_{kl}\,U_t\right].
+    \label{eq:SDK_def}
+\end{equation}
+The SDK encodes two-time correlators via
+\begin{equation}
+    \mathcal{L}_t(O_A, O_B)
+    \;=\; \tr\!\left[\rho\,O_A\,U_t^\dagger\,O_B\,U_t\right]
+    \;=\; \sum_{i,j,k,l} C_{ij;kl}(t)\,O^{(A)}_{ij}\,O^{(B)}_{kl},
+    \label{eq:correlator_from_SDK}
+\end{equation}
+where $O^{(A)}_{ij} = \langle i|O_A|j\rangle$ and $O^{(B)}_{kl} = \langle k|O_B|l\rangle$
+are the matrix elements in the chosen basis.
+
+\section{Single-Sided DSSYK}
+
+\subsection{Energy basis and overlaps}
+
+The single-sided DSSYK Hilbert space is spanned by chord number states $|n\rangle$,
+$n = 0,1,2,\ldots\;$. We take $\rho = |0\rangle\langle 0|$.
+The continuous energy eigenstates $|\theta\rangle$ satisfy the resolution of identity
+\begin{equation}
+    \mathbf{1} = \int_0^\pi \frac{d\theta}{2\pi}\,\mu(\theta)\,|\theta\rangle\langle\theta|,
+    \qquad
+    \mu(\theta) = \qq{q,\,e^{\pm 2i\theta}},
+    \label{eq:resolution}
+\end{equation}
+with the inner product 
+\begin{equation}
+    \langle\theta|\phi\rangle = \frac{2\pi\,\delta(\theta-\phi)}{\mu(\theta)}.
+    \label{eq:inner_product}
+\end{equation}
+The overlaps with chord basis states are
+\begin{equation}
+    \langle\theta|n\rangle = \frac{H_n(\cos\theta| q)}{\sqrt{(q;q)_\infty}},
+    \label{eq:overlap}
+\end{equation}
+where $H_n(x| q)$ are the continuous $q$-Hermite polynomials, $H_0 = 1$.
+The energy is parametrized by
+\begin{equation}
+    E(\theta) = -\frac{2J\cos\theta}{\sqrt{\lambda(1-q)}}.
+    \label{eq:dispersion}
+\end{equation}
+
+\subsection{SDK coefficients}
+
+Inserting two resolutions of identity \eqref{eq:resolution} into \eqref{eq:SDK_def}
+and using $\rho = |0\rangle\langle 0|$ gives
+\begin{align}
+    C_{ij;kl}(t)
+    &= \int\frac{d\theta\,d\phi}{(2\pi)^2}\,\mu(\theta)\mu(\phi)\,
+       e^{-it(E(\theta)-E(\phi))}\,
+       \langle 0|\hat{E}^A_{ij}|\theta\rangle\,
+       \langle\theta|\hat{E}^B_{kl}|\phi\rangle\,
+       \langle\phi|0\rangle.
+    \label{eq:SDK_inserted}
+\end{align}
+Evaluating each matrix element,
+\begin{equation}
+    \langle 0|\hat{E}^A_{ij}|\theta\rangle
+    = \langle 0|i\rangle\langle j|\theta\rangle
+    = \delta_{0i}\,\frac{H_j(\cos\theta| q)}{\sqrt{(q;q)_\infty}},
+\end{equation}
+\begin{equation}
+    \langle\theta|\hat{E}^B_{kl}|\phi\rangle
+    = \langle\theta|k\rangle\langle l|\phi\rangle
+    = \frac{H_k(\cos\theta| q)\,H_l(\cos\phi| q)}{(q;q)_\infty},
+\end{equation}
+\begin{equation}
+    \langle\phi|0\rangle = \frac{H_0(\cos\phi| q)}{\sqrt{(q;q)_\infty}} = \frac{1}{\sqrt{(q;q)_\infty}}.
+\end{equation}
+Substituting back into \eqref{eq:SDK_inserted} and absorbing overall factors of $(q;q)_\infty$
+into a proportionality constant,
+\begin{equation}
+    \boxed{
+    C_{0j;kl}(t) \propto \delta_{0i}
+    \int\frac{d\theta\,d\phi}{(2\pi)^2}\,\mu(\theta)\mu(\phi)\,
+    e^{-it(E(\theta)-E(\phi))}\,
+    \frac{H_j(\cos\theta| q)^*}{\sqrt{(q;q)_j}}
+    \frac{H_k(\cos\theta| q)}{\sqrt{(q;q)_k}}
+    \frac{H_l(\cos\phi| q)}{\sqrt{(q;q)_l}}.
+    }
+    \label{eq:SDK_result}
+\end{equation}
+
+
+\section{Contraction with the Matter Operator}
+
+\subsection{The operator and its matrix elements}
+
+The physical matter operator $\mathcal{O}_\Delta$ in DSSYK is diagonal in the chord basis:
+\begin{equation}
+    O_{ij} = \langle i|\mathcal{O}_\Delta|j\rangle = \delta_{ij}\,\tilde{q}^{\,i},
+    \qquad \tilde{q} = q^\Delta.
+    \label{eq:operator}
+\end{equation}
+In the chord diagram language, each crossing of an $M$-string with an $H$-string
+contributes a factor $\tilde{q}$, so $\mathcal{O}_\Delta$ is represented by the
+diagonal matrix $S = \mathrm{diag}(1,\tilde{q},\tilde{q}^2,\ldots)$.
+
+The NV physical operator is a product of left and right local operators,
+\begin{equation}
+    \mathcal{O}^\phys_\Delta(\tau) = \int dt\,\mathcal{O}^L_{1-\Delta}(t)\,\mathcal{O}^R_\Delta(-t+\tau),
+\end{equation}
+so the full contraction requires \emph{two} operator coefficient matrices:
+$O^L_{ij} = \delta_{ij}(\tilde{q}')^i$ with $\tilde{q}' = q^{1-\Delta}$, and
+$O^R_{kl} = \delta_{kl}\tilde{q}^k$ with $\tilde{q} = q^\Delta$.
+
+\subsection{Applying the Poisson kernel identity}
+
+Contracting \eqref{eq:SDK_result} with $O^L_{ij}O^R_{kl}$ and using $\delta_{ij}$,
+$\delta_{0i}$, $\delta_{kl}$, the $i=j=0$ constraint gives $(\tilde{q}')^0=1$,
+and the sum over $k=l$ remains:
+\begin{align}
+    \mathcal{L}_\tau(\mathcal{O}^\phys_\Delta, \mathcal{O}^\phys_\Delta)
+    \propto
+    &\int\frac{d\theta\,d\phi}{(2\pi)^2}\,\mu(\theta)\mu(\phi)\,
+    e^{-\tau(E(\theta)-E(\phi))}\,
+    \left(\sum_j \frac{H_j(\cos\theta| q)\,H_j(\cos\phi| q)}{(q;q)_j}(\tilde{q}')^j\right)\times \nonumber\\
+    &\times\left(\sum_k \frac{H_k(\cos\theta| q)\,H_k(\cos\phi| q)}{(q;q)_k}\tilde{q}^k\right).
+    \label{eq:double_sum}
+\end{align}
+Each sum is evaluated using the Poisson kernel for
+the continuous $q$-Hermite polynomials \cite{Berkooz2019},
+\begin{equation}
+    \sum_{k=0}^\infty \frac{H_k(\cos\theta| q)\,H_k(\cos\phi| q)}{(q;q)_k}\,t^k
+    = \frac{(t^2;q)_\infty}{(t\,e^{i(\pm\theta\pm\phi)};q)_\infty},
+    \label{eq:Poisson_kernel}
+\end{equation}
+where the right-hand side is shorthand for the product over all four sign choices,
+\begin{equation}
+    (t\,e^{i(\pm\theta\pm\phi)};q)_\infty
+    = (t\,e^{i(\theta+\phi)};q)_\infty\,(t\,e^{i(\theta-\phi)};q)_\infty\,
+      (t\,e^{-i(\theta-\phi)};q)_\infty\,(t\,e^{-i(\theta+\phi)};q)_\infty.
+\end{equation}
+Here $t$ is the generating parameter; the left side is a formal power series in $t$
+whose coefficients are the products $H_k(\cos\theta| q)H_k(\cos\phi| q)/(q;q)_k$.
+In our context $t = \tilde{q} = q^\Delta$ encodes the scaling dimension of the operator.
+
+Applying \eqref{eq:Poisson_kernel} to both sums in \eqref{eq:double_sum} with
+$t=\tilde{q}=q^\Delta$ and $t'=\tilde{q}'=q^{1-\Delta}$ respectively,
+\begin{equation}
+    \mathcal{L}_\tau
+    \propto
+    \int\frac{d\theta\,d\phi}{(2\pi)^2}\,\mu(\theta)\mu(\phi)\,
+    e^{-\tau(E(\theta)-E(\phi))}\,
+    \frac{((\tilde{q}')^2;q)_\infty}{(\tilde{q}'\,e^{i(\pm\theta\pm\phi)};q)_\infty}
+    \cdot
+    \frac{(\tilde{q}^2;q)_\infty}{(\tilde{q}\,e^{i(\pm\theta\pm\phi)};q)_\infty}.
+    \label{eq:after_identity}
+\end{equation}
+
+\subsection{Converting to $q$-Gamma functions}
+
+Using the definition of the $q$-Gamma function,
+\begin{equation}
+    \Gamma_q(x) = (1-q)^{1-x}\frac{(q;q)_\infty}{(q^x;q)_\infty},
+\end{equation}
+and identifying $q^{is} = e^{i\theta}$, each $q$-Pochhammer factor converts as
+\begin{equation}
+    \frac{1}{(\tilde{q}\,e^{i(\pm\theta\pm\phi)};q)_\infty}
+    = \frac{1}{\prod_{\epsilon_1,\epsilon_2=\pm}(q^{\Delta+i\epsilon_1 s_1+i\epsilon_2 s_0};q)_\infty}
+    \propto \Gamma_q(\Delta \pm is_0 \pm is_1),
+    \label{eq:pochhammer_to_gamma}
+\end{equation}
+and analogously for the $1-\Delta$ factor. The numerator factors give
+$(\tilde{q}^2;q)_\infty = (q^{2\Delta};q)_\infty \propto 1/\Gamma_q(2\Delta)$, and
+$((\tilde{q}')^2;q)_\infty \propto 1/\Gamma_q(2-2\Delta)$.
+
+The Askey-Wilson measure converts as
+\begin{equation}
+    \mu(\theta) = \qq{q,\,e^{\pm 2i\theta}} \propto \frac{(q;q)_\infty^3}{\Gamma_q(\pm 2is_1)}.
+\end{equation}
+
+\subsection{Collapsing the $\phi$ integral via the choice of $\rho$}
+To match the NV correlator, we must replace $\rho = \ketbra{0}{0}$ by
+\begin{equation}
+    \rho = \ketbra{E_0}{E_0}, \qquad \ket{E_0} = \ket{\theta_0},
+    \label{eq:rho_E0}
+\end{equation}
+where $\ket{E_0} = \ket{\Psi_\dS}$ is the maximal entropy state, an energy eigenstate
+with spectral parameter $s_0$ and $E_0 = 0$. Since $\ket{E_0}$ is an energy eigenstate,
+the overlap with the chord basis is
+\begin{equation}
+    \braket{E_0|n}
+    = \braket{\theta_0|n}
+    = \frac{H_n(\cos\theta_0\mid q)}{\sqrt{(q;q)_\infty}},
+\end{equation}
+and in particular $\braket{E_0|0} = 1/\sqrt{(q;q)_\infty}$, which is no longer
+$\delta_{0i}$. Crucially, with $\rho = \ketbra{E_0}{E_0}$ the SDK integral
+\eqref{eq:SDK_inserted} becomes
+\begin{align}
+    C_{ij;kl}(t)
+    &= \int\frac{d\theta\,d\phi}{(2\pi)^2}\,\mu(\theta)\mu(\phi)\,
+       e^{-it(E(\theta)-E(\phi))}\,
+       \bra{E_0}\hat{E}^A_{ij}\ket{\theta}\,
+       \bra{\theta}\hat{E}^B_{kl}\ket{\phi}\,
+       \braket{\phi|E_0}.
+\end{align}
+Now $\braket{\phi|E_0} = \braket{\phi|\theta_0} = 2\pi\delta(\phi-\theta_0)/\mu(\phi)$
+by the inner product \eqref{eq:inner_product}. The $\delta(\phi-\theta_0)$ collapses
+the $\phi$ integral immediately, with the $1/\mu(\phi)$ canceling one power of $\mu(\phi)$
+from the measure, leaving a single integral over $\theta$:
+\begin{equation}
+    C_{ij;kl}(t)\big|_{\rho=\ketbra{E_0}{E_0}}
+    \propto
+    \int\frac{d\theta}{2\pi}\,\mu(\theta)\,
+    e^{-it(E(\theta)-E(\theta_0))}\,
+    \bra{E_0}\hat{E}^A_{ij}\ket{\theta}\,
+    \bra{\theta}\hat{E}^B_{kl}\ket{\theta_0}.
+\end{equation}
+The phase $e^{+itE(\theta_0)}$ is a constant overall factor (since $s_0$ is fixed)
+and can be absorbed into normalization. The contraction with operator coefficients
+then proceeds exactly as in Section~5.2--5.3, with $\phi$ replaced everywhere by
+the fixed value $\theta_0$. Both applications of the Poisson kernel \eqref{eq:Poisson_kernel}
+now involve arguments $(\cos\theta, \cos\theta_0)$ rather than $(\cos\theta, \cos\phi)$,
+and the result is the single integral
+\begin{equation}
+    \boxed{
+    \mathcal{L}_\tau(\mathcal{O}^\phys_\Delta, \mathcal{O}^\phys_\Delta)
+    \propto
+    \int_0^\pi \frac{d\theta}{2\pi}\,\mu(\theta)\,e^{-\tau E(\theta)}\,
+    \frac{\Gamma_q(\Delta\pm is_0\pm is_1)\,\Gamma_q(1-\Delta\pm is_0\pm is_1)}
+         {\Gamma_q(\pm 2is_1)\,\Gamma_q(2\Delta)\,\Gamma_q(2-2\Delta)},
+    }
+    \label{eq:final_correlator}
+\end{equation}
+where $s_1$ is the spectral parameter corresponding to $\theta$, and $s_0$ is the
+fixed spectral parameter of the external state $\ket{E_0}$.
+
+\section{Comparison with the NV Two-Point Function}
+
+Equation~\eqref{eq:final_correlator} is precisely the DSSYK two-point function
+of Narovlansky and Verlinde \cite{Narovlansky2023} (eq.~(11) of \cite{Verlinde2024}):
+\begin{equation}
+    G_\Delta(\tau_1)
+    = \langle E_0|\mathcal{O}_\Delta(\tau)\mathcal{O}_\Delta(0)|E_0\rangle
+    = \int ds_1\,e^{-\tau_1 E(s_1)}\,
+      \frac{\Gamma_q(\Delta\pm is_0\pm is_1)\,\Gamma_q(1-\Delta\pm is_0\pm is_1)}
+           {\Gamma_q(\pm 2is_1)\,\Gamma_q(2\Delta)\,\Gamma_q(2-2\Delta)}.
+    \label{eq:NV_correlator}
+\end{equation}
+
+Using the identity (eq.~(12) of \cite{Verlinde2024})
+\begin{equation}
+    \Gamma_q(x)\,\Gamma_q(1-x)
+    = iq^{1/8}(1-q)(q;q)^3_\infty\,\frac{q^{x/2}}{\vartheta_1\!\left(\tfrac{i\lambda}{2\pi}x,\,q\right)},
+    \label{eq:Gamma_theta_identity}
+\end{equation}
+each pair $\Gamma_q(\Delta\pm is_0\pm is_1)\,\Gamma_q(1-\Delta\pm is_0\pm is_1)$
+in \eqref{eq:NV_correlator} can be rewritten in terms of Jacobi theta functions.
+The spectral density becomes a single theta function,
+\begin{equation}
+    \rho(s) = \frac{1}{\Gamma_q(\pm 2is)} \propto \vartheta_1\!\left(\tfrac{\lambda}{\pi}s,\,q\right),
+\end{equation}
+and the full two-point function takes the form
+\begin{equation}
+    G_\Delta(\tau_1)
+    = \int dE(s_1)\,e^{-\tau_1 E(s_1)}\,
+      \frac{\vartheta_1\!\left(\tfrac{i\lambda}{\pi}\Delta,\,q\right)
+            \prod_a \vartheta_1\!\left(\tfrac{\lambda}{\pi}s_a,\,q\right)}
+           {\prod_a \vartheta_1\!\left(\tfrac{\lambda}{2\pi}(i\Delta\pm s_0\pm s_1),\,q\right)},
+    \label{eq:theta_form}
+\end{equation}
+with $a\in\{0,1\}$. The equivalence between \eqref{eq:NV_correlator} and \eqref{eq:theta_form}
+follows from the Jacobi triple product identity, which relates each $q$-Pochhammer factor
+$(e^{2i\theta};q)_\infty$ to $\vartheta_1(\theta/\pi,q)$.
+
+
+
+\begin{thebibliography}{9}
+\bibitem{Berkooz2019}
+M.~Berkooz, M.~Isachenkov, V.~Narovlansky, G.~Torrents,
+\emph{Towards a full solution of the large $N$ double-scaled SYK model},
+JHEP \textbf{03} (2019) 079, arXiv:1811.02584.
+
+\bibitem{Narovlansky2023}
+V.~Narovlansky and H.~Verlinde,
+\emph{Double-scaled SYK and de Sitter Holography},
+arXiv:2310.16994.
+
+\bibitem{Verlinde2024}
+H.~Verlinde and M.~Zhang,
+\emph{SYK Correlators from 2D Liouville-de Sitter Gravity},
+arXiv:2402.02584.
+
+\bibitem{Das2025}
+R.~N.~Das, A.~Kundu, M.~H.~Martins Costa, N.~C.~Sarkar,
+\emph{Temporal correlations and chaos from spacetime kernels},
+JHEP \textbf{04} (2026) 141, arXiv:2512.06078.
+\end{thebibliography}
+
+\end{document}

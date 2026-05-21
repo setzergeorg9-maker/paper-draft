@@ -1,0 +1,308 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{Narovlansky:2023lfz}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=a56bdbd894f4dbbd3c67992845d57836}{%
+           family={Narovlansky},
+           familyi={N\bibinitperiod},
+           given={Vladimir},
+           giveni={V\bibinitperiod}}}%
+        {{hash=1a69d1c3671c6a6d9e0c68b1d3d894ac}{%
+           family={Verlinde},
+           familyi={V\bibinitperiod},
+           given={Herman},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{93056b6f9aa1be6b414dc805805f3499}
+      \strng{fullhash}{93056b6f9aa1be6b414dc805805f3499}
+      \strng{fullhashraw}{93056b6f9aa1be6b414dc805805f3499}
+      \strng{bibnamehash}{93056b6f9aa1be6b414dc805805f3499}
+      \strng{authorbibnamehash}{93056b6f9aa1be6b414dc805805f3499}
+      \strng{authornamehash}{93056b6f9aa1be6b414dc805805f3499}
+      \strng{authorfullhash}{93056b6f9aa1be6b414dc805805f3499}
+      \strng{authorfullhashraw}{93056b6f9aa1be6b414dc805805f3499}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{hep-th}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{JHEP}
+      \field{title}{{Double-scaled SYK and de Sitter holography}}
+      \field{volume}{05}
+      \field{year}{2025}
+      \field{pages}{032}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1007/JHEP05(2025)032
+      \endverb
+      \verb{eprint}
+      \verb 2310.16994
+      \endverb
+    \endentry
+    \entry{chandrasekaran_algebra_2023}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=e2e19cf9bc322334195c28e9a0c1b47f}{%
+           family={Chandrasekaran},
+           familyi={C\bibinitperiod},
+           given={Venkatesa},
+           giveni={V\bibinitperiod}}}%
+        {{hash=9d9dd5d6a6960d283ea602c7ad4a873f}{%
+           family={Longo},
+           familyi={L\bibinitperiod},
+           given={Roberto},
+           giveni={R\bibinitperiod}}}%
+        {{hash=ede740a8586b26ff69cf243a8a42df66}{%
+           family={Penington},
+           familyi={P\bibinitperiod},
+           given={Geoff},
+           giveni={G\bibinitperiod}}}%
+        {{hash=499139cc4d3fda9ba3955fa766a07270}{%
+           family={Witten},
+           familyi={W\bibinitperiod},
+           given={Edward},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{c9d967f6e61af7e28eb88da2556f46bb}
+      \strng{fullhash}{6d6b27f0542c5e6b24be11dcf232df9c}
+      \strng{fullhashraw}{6d6b27f0542c5e6b24be11dcf232df9c}
+      \strng{bibnamehash}{c9d967f6e61af7e28eb88da2556f46bb}
+      \strng{authorbibnamehash}{c9d967f6e61af7e28eb88da2556f46bb}
+      \strng{authornamehash}{c9d967f6e61af7e28eb88da2556f46bb}
+      \strng{authorfullhash}{6d6b27f0542c5e6b24be11dcf232df9c}
+      \strng{authorfullhashraw}{6d6b27f0542c5e6b24be11dcf232df9c}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We describe an algebra of observables for a static patch in de Sitter space, with operators gravitationally dressed to the worldline of an observer. The algebra is a von Neumann algebra of Type II1. There is a natural notion of entropy for a state of such an algebra. There is a maximum entropy state, which corresponds to empty de Sitter space, and the entropy of any semiclassical state of the Type II1 algebras agrees, up to an additive constant independent of the state, with the expected generalized entropy Sgen = (A/4GN) + Sout. An arbitrary additive constant is present because of the renormalization that is involved in defining entropy for a Type II1 algebra.}
+      \field{issn}{1029-8479}
+      \field{journaltitle}{Journal of High Energy Physics}
+      \field{month}{2}
+      \field{number}{2}
+      \field{title}{An algebra of observables for de {Sitter} space}
+      \field{urlday}{17}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{volume}{2023}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \field{pages}{82}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1007/JHEP02(2023)082
+      \endverb
+      \verb{file}
+      \verb Full Text PDF:C\:\\Users\\georg\\Zotero\\storage\\FTDT8AHB\\Chandrasekaran et al. - 2023 - An algebra of observables for de Sitter space.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/JHEP02(2023)082
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/JHEP02(2023)082
+      \endverb
+      \keyw{de Sitter space,Cosmological models}
+    \endentry
+    \entry{berkooz_towards_2018}{misc}{}{}
+      \name{author}{4}{}{%
+        {{hash=633e3d7d98f82691ab8f3f7e920b4ed4}{%
+           family={Berkooz},
+           familyi={B\bibinitperiod},
+           given={Micha},
+           giveni={M\bibinitperiod}}}%
+        {{hash=1ece57e5cc394c0fa67a58c01efba375}{%
+           family={Isachenkov},
+           familyi={I\bibinitperiod},
+           given={Mikhail},
+           giveni={M\bibinitperiod}}}%
+        {{hash=a56bdbd894f4dbbd3c67992845d57836}{%
+           family={Narovlansky},
+           familyi={N\bibinitperiod},
+           given={Vladimir},
+           giveni={V\bibinitperiod}}}%
+        {{hash=305fc616894491c2edf214ffc0e303f5}{%
+           family={Torrents},
+           familyi={T\bibinitperiod},
+           given={Genis},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{d51d10178145e6bf76fea196c74b9e4c}
+      \strng{fullhash}{018ffde3695cd032886a6556dafb9e71}
+      \strng{fullhashraw}{018ffde3695cd032886a6556dafb9e71}
+      \strng{bibnamehash}{d51d10178145e6bf76fea196c74b9e4c}
+      \strng{authorbibnamehash}{d51d10178145e6bf76fea196c74b9e4c}
+      \strng{authornamehash}{d51d10178145e6bf76fea196c74b9e4c}
+      \strng{authorfullhash}{018ffde3695cd032886a6556dafb9e71}
+      \strng{authorfullhashraw}{018ffde3695cd032886a6556dafb9e71}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We compute the exact, all energy scale, 4-point function of the large \$N\$ double-scaled SYK model, by using only combinatorial tools and relating the correlation functions to sums over chord diagrams. We apply the result to obtain corrections to the maximal Lyapunov exponent at low temperatures. We present the rules for the non-perturbative diagrammatic description of correlation functions of the entire model. The latter indicate that the model can be solved by a reduction of a quantum deformation of SL\$(2)\$, that generalizes the Schwarzian to the complete range of energies.}
+      \field{journaltitle}{arXiv.org}
+      \field{month}{11}
+      \field{title}{Towards a full solution of the large {N} double-scaled {SYK} model}
+      \field{urlday}{11}
+      \field{urlmonth}{11}
+      \field{urlyear}{2025}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.1007/JHEP03(2019)079
+      \endverb
+      \verb{file}
+      \verb Full Text PDF:C\:\\Users\\georg\\Zotero\\storage\\7EKTERMY\\Berkooz et al. - 2018 - Towards a full solution of the large N double-scaled SYK model.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1811.02584v2
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1811.02584v2
+      \endverb
+    \endentry
+    \entry{Parker:2018yvk}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=6ed1b3d665b2ad8354e097578c019d5e}{%
+           family={Parker},
+           familyi={P\bibinitperiod},
+           given={Daniel\bibnamedelima E.},
+           giveni={D\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=dbcba0e91d00b25c8ae7305c001691c6}{%
+           family={Cao},
+           familyi={C\bibinitperiod},
+           given={Xiangyu},
+           giveni={X\bibinitperiod}}}%
+        {{hash=bbcce172d4504a4c45f445d37084a703}{%
+           family={Avdoshkin},
+           familyi={A\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=43aeaaac34ec85d0878dab4a5021dce2}{%
+           family={Scaffidi},
+           familyi={S\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=9894bb19bd9f48642539f5ef6d571f7d}{%
+           family={Altman},
+           familyi={A\bibinitperiod},
+           given={Ehud},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{3135840da3340ad1743cc4b04756a4ff}
+      \strng{fullhash}{8135842e5db26521d99d2b63662a7660}
+      \strng{fullhashraw}{8135842e5db26521d99d2b63662a7660}
+      \strng{bibnamehash}{3135840da3340ad1743cc4b04756a4ff}
+      \strng{authorbibnamehash}{3135840da3340ad1743cc4b04756a4ff}
+      \strng{authornamehash}{3135840da3340ad1743cc4b04756a4ff}
+      \strng{authorfullhash}{8135842e5db26521d99d2b63662a7660}
+      \strng{authorfullhashraw}{8135842e5db26521d99d2b63662a7660}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cond-mat.stat-mech}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{Phys. Rev. X}
+      \field{number}{4}
+      \field{title}{{A Universal Operator Growth Hypothesis}}
+      \field{volume}{9}
+      \field{year}{2019}
+      \field{pages}{041017}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1103/PhysRevX.9.041017
+      \endverb
+      \verb{eprint}
+      \verb 1812.08657
+      \endverb
+    \endentry
+    \entry{erdmenger_universal_2023}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=1dee34f96e86d8b535566b362406e55f}{%
+           family={Erdmenger},
+           familyi={E\bibinitperiod},
+           given={Johanna},
+           giveni={J\bibinitperiod}}}%
+        {{hash=ed12a24397ab4fe6f82b2457837aaea7}{%
+           family={Jian},
+           familyi={J\bibinitperiod},
+           given={Shao-Kai},
+           giveni={S\bibinithyphendelim K\bibinitperiod}}}%
+        {{hash=bb53b16b7b33a94f6735f1e2f1feaafa}{%
+           family={Xian},
+           familyi={X\bibinitperiod},
+           given={Zhuo-Yu},
+           giveni={Z\bibinithyphendelim Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{d61f6d7fb8ecda698d0c1e4bca388ebe}
+      \strng{fullhash}{d61f6d7fb8ecda698d0c1e4bca388ebe}
+      \strng{fullhashraw}{d61f6d7fb8ecda698d0c1e4bca388ebe}
+      \strng{bibnamehash}{d61f6d7fb8ecda698d0c1e4bca388ebe}
+      \strng{authorbibnamehash}{d61f6d7fb8ecda698d0c1e4bca388ebe}
+      \strng{authornamehash}{d61f6d7fb8ecda698d0c1e4bca388ebe}
+      \strng{authorfullhash}{d61f6d7fb8ecda698d0c1e4bca388ebe}
+      \strng{authorfullhashraw}{d61f6d7fb8ecda698d0c1e4bca388ebe}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{28}
+      \field{eprinttype}{arxiv}
+      \field{issn}{1029-8479}
+      \field{journaltitle}{Journal of High Energy Physics}
+      \field{month}{8}
+      \field{number}{8}
+      \field{shortjournal}{J. High Energ. Phys.}
+      \field{title}{Universal chaotic dynamics from Krylov space}
+      \field{urlday}{17}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{volume}{2023}
+      \field{year}{2023}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{176}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1007/JHEP08(2023)176
+      \endverb
+      \verb{eprint}
+      \verb 2303.12151 [hep-th]
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2303.12151
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2303.12151
+      \endverb
+      \keyw{Condensed Matter - Strongly Correlated Electrons,High Energy Physics - Theory,Condensed Matter - Statistical Mechanics,Nonlinear Sciences - Chaotic Dynamics}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

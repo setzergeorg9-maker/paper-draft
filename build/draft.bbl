@@ -1,0 +1,20 @@
+
+\providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{1}
+
+\bibitem{berkooz_towards_2018}
+M.~Berkooz, M.~Isachenkov, V.~Narovlansky and G.~Torrents, \emph{Towards a full
+  solution of the large {N} double-scaled {SYK} model},  Nov., 2018.
+\newblock 10.1007/JHEP03(2019)079.
+
+\bibitem{berkooz_chord_2018}
+M.~Berkooz, P.~Narayan and J.~Simón, \emph{Chord diagrams, exact correlators
+  in spin glasses and black hole bulk reconstruction},
+  \href{https://doi.org/10.1007/JHEP08(2018)192}{\emph{Journal of High Energy
+  Physics} {\bfseries 2018} (2018) 192}.
+
+\bibitem{Das:2026ifj}
+R.~N. Das, A.~Kundu and N.~C. Sarkar, \emph{{Timelike Entanglement Signatures
+  of Ergodicity and Spectral Chaos}},
+  \href{https://arxiv.org/abs/2601.19981}{{\ttfamily 2601.19981}}.
+
+\end{thebibliography}\endgroup
