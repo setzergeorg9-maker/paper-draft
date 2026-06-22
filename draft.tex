@@ -1,42 +1,58 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage{jheppub}
+\bibstyle{JHEP}
+
+\usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{graphicx,fancybox,float,comment,bm}
-
-\usepackage[dvipsnames]{xcolor}
-\usepackage{amsmath,amssymb,amsfonts}
-\usepackage{dsfont}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts}
+\usepackage{amsmath}       
+\usepackage{amsfonts}          
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{comment}
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings}
 \usepackage{physics}
-%\usepackage{showkeys}
-\usepackage{ulem}
+\usepackage{dsfont}
+\usepackage{tabu}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usetikzlibrary{arrows.meta}
 
-\title{Timelike entanglement measures for the double-scaled SYK model}
+\title{Timelike entanglement entropy for the double-scaled SYK model}
 
 \author[a]{Johanna Erdmenger,}
 \author[a]{Maximilian Gaschler,}
 \author[a]{Jonathan Karl,}
 \author[b]{Arnab Kundu,}
-\author[a]{Georg Setzer}
+\author[a]{and Georg Setzer}
 \date{}
-\affiliation[a]{Institute for Theoretical Physics and Astrophysics,
-Julius-Maximilians-Universität Würzburg, Am Hubland, 97074 Würzburg, Germany}
+\affiliation[a]{Institute for Theoretical Physics and Astrophysics and Würzburg-Dresden Cluster of Excellence
+ctd.qmat, Julius-Maximilians-Universit\"at W\"urzburg, Am Hubland, 97074 Würzburg, Germany}
 
 \abstract{abstract}
 
 \begin{document}
 \maketitle
-\newpage
+
+
 \section{Introduction}
 
+\begin{itemize}
+    \item Timelike EE as potential holographic probe of dS
+    \item One propossed measure for timelike EE is spacetime density kernel
+    \item Goal is to find holographic interpretation. Therefore, define kernel for DSSYK
+    \item DSSYK in triple scaled regime behaves as AdS JT, while also exhibiting dS features
+    \item It is natural to extend kernel to DSSYK
+\end{itemize}
 
-
-\section{A spacetime density kernel for the DSSYK model}
-
+\section{Review}
 
 Given a Hilbert space $\mathcal{H}$ with density matrix $\rho$, time evolution $U_t = e^{-iHt}$,
 and a bipartition $\mathcal{H} = \mathcal{H}_A \otimes \mathcal{H}_B$ with matrix unit bases
-$\hat{E}^A_{ij} = \ketbra{i}{j} \otimes \mathbb{1}_B$ and
-$\hat{E}^B_{kl} = \mathbb{1}_A \otimes \ketbra{k}{l} $,
+$\hat{E}^A_{ij} = \ketbra{i}{j} \otimes \mathds{1}_B$ and
+$\hat{E}^B_{kl} = \mathds{1}_A \otimes \ketbra{k}{l} $,
 
 
 \subsection{Definition and properties of the spacetime density kernel}
@@ -66,8 +82,8 @@ We calculate the response tensor as the trace
 \end{align}
 
 \subsection{Overview of the double-scaled SYK model}
-
-The SYK model is consists of $N$ Majorana fermions which are coupled by a a random parameter $J$ in an $p$-body interaction.
+In this section the basic properties of the double scaled SYK model are reviewed and our conventions which mainly follow \cite{Berkooz:2018jqr} are stated.
+The SYK model consists of $N$ Majorana fermions which are coupled by a a random parameter $J$ in an $p$-body interaction.
 \begin{align}
 	H_{SYK} = i^{p/2} \sum_{i_1...i_p} J_{i_1 \dots i_p} \psi_{i_1} \dots \psi_{i_p}.
 	\label{eq:SYK_Hamiltonian}
@@ -81,20 +97,8 @@ while keeping
 	\lambda = \frac{2 p^2}{N} = \mathrm{const.}
 	\label{eq:lambda}
 \end{align}
-constant. We also define the parameter $q = e^{-\lambda}$, which is used as the deformation parameter in the later part.\\
-In this limit the moments of the Hamiltonian 
-\begin{align}
-    m_{k} = \ev{\mathrm{Tr}H^{k}}_{J} 
-\end{align}
-can be calculated as a sum over chord diagrams as showed in e.g. \cite{berkooz_towards_2018,berkooz_chord_2018}. By evaluating this sum combinatorically we go to an auxiliary Hilbert space of open chord states.
-With states $\ket{l}$ as the basis of the chord number states we can define the transfer matrix 
-\begin{align}
-    T = 
-    \begin{pmatrix}
-        0 & 1 & 0 & \dots \\
-        1 & 0 & \frac{}{} \\
-    \end{pmatrix}
-\end{align}
+constant. We also define the parameter $q = e^{-\lambda}$. 
+
 
 %The moments of the Hamiltonian are calculated by summing all the possible chord diagrams with the respective number of Hamiltonians. For each intersection of Hamiltonian chords one assigns powers of $q$ to the diagram (fig. \ref{fig:Chord_Diag_ex}).
 %\begin{figure}
@@ -108,8 +112,9 @@ With states $\ket{l}$ as the basis of the chord number states we can define the 
 %    \nonumber
 %\end{align}
 
-\subsection{Derivation of the DSSYK spacetime density kernel}
+\section{A spacetime density kernel for the DSSYK model}
 
+\subsection{Derivation of the DSSYK spacetime density kernel}
 
 \begin{align}
     C_{ij;kl}(t) = 
@@ -120,7 +125,11 @@ With states $\ket{l}$ as the basis of the chord number states we can define the 
 \nonumber \end{align}
 
 \subsection{Relation to the two-point function}
+
+\subsection{Spectral form factor from kernel}
+
 \section{Numerical results}
+
 \subsection{Timelike entanglement measures}
 The spacetime density kernel allows us to study correlations in time, since it encodes the dynamics of different time-slices in one operator. Multiple measures, which quantify these correlations, can be extracted from the spacetime density kernel $T_{AB}(t)$. The goal of this section is to numerically calculate these quantities, which were introduced in \cite{Das:2026ifj}, for the double-scaled SYK model. It is important to note that $T_{AB}(t)$ is not necessarily Hermitian, but $\text{Tr}\ T_{AB}(t)=1$ always holds. Firstly, we aim to calculate the Tsallis entropy
 \begin{equation}
@@ -144,8 +153,20 @@ Another important quantity which we will consider is the kernel negativity $\mat
     \mathcal{N}_H(t)=\sum_{\mu_\alpha(t)<0}|\mu_\alpha(t)|,
 \end{equation}
 where $\{\mu_\alpha(t)\}$ are the eigenvalues of $H_{AB}(t)$.
+
 \subsection{Spectral form factor}
-\newpage
+
+\section{Discussion and outlook}
+
+\acknowledgments{We would like to thank ... for useful discussions. JE, MG, JK and GS are supported by
+Germany’s Excellence Strategy through the Würzburg
+Dresden Cluster of Excellence ctd.qmat– Complexity,
+Topology and Dynamics in Quantum Matter (EXC 2147,
+project-id 390858490), and by the Deutsche Forschungs
+gemeinschaft (DFG) through the Collaborative Research
+centre “ToCoTronics”, Project-ID 258499086-SFB 1170We.}
+
+\bibliography{bib.bib}
 \bibliographystyle{JHEP}
-\bibliography{ref}
+
 \end{document}
