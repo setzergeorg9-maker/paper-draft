@@ -19,6 +19,7 @@
 \usepackage{tikz}
 \usepackage{xcolor}
 \usetikzlibrary{arrows.meta}
+\usepackage{cleveref}
 
 \title{Timelike entanglement entropy for the double-scaled SYK model}
 
@@ -82,6 +83,8 @@ We calculate the response tensor as the trace
 \end{align}
 
 \subsection{Overview of the double-scaled SYK model}
+\label{subs:DSSYK_basics}
+
 In this section the basic properties of the double scaled SYK model are reviewed and our conventions which mainly follow \cite{Berkooz:2018jqr} are stated.
 The SYK model consists of $N$ Majorana fermions which are coupled by a a random parameter $J$ in an $p$-body interaction.
 \begin{align}
@@ -97,8 +100,65 @@ while keeping
 	\lambda = \frac{2 p^2}{N} = \mathrm{const.}
 	\label{eq:lambda}
 \end{align}
-constant. We also define the parameter $q = e^{-\lambda}$. 
+constant. We also define the parameter $q = e^{-\lambda}$. \\
+By suming over chord diagrams we can simplify the problem to be described by the transfer matrix 
+\begin{align}
+    T = 
+    \begin{pmatrix}
+        0 & \frac{1-q}{1-q} & 0 & 0 & \cdots \\
+        1 & 0 & \frac{1-q^2}{1-q} & 0 \\
+        0 & 1 & 0 & \frac{1-q^3}{1-q} &  \\
+        0 & 0 & 1 & 0  \\
+         \vdots & & & & \ddots
+    \end{pmatrix}
+    .
+\end{align}
+In the double scaling limit one can calculate all the moments of the Hamiltonian $\ev{\mathrm{Tr}(H_\mathrm{SYK})^{k}}_J$ by exchanging the ensemble averaged traces in the theory by the vacuum expectation values of powers of the transfer matrix T
+\begin{align}
+    \ev{\mathrm{Tr}(H_\mathrm{SYK})^{k}}_J = \ev{T}{0}.
+\end{align}
+A closed expression for eigenvectors and eigen-energies of the transfer matrix $T$ have been found. In the case of the infinite chord number hilbert space we can parametrize the eigenvalues of $T$ by a continuous parameter $\theta \in [0, \pi ]$ and find
+\begin{align}
+    E(\theta) = - \frac{2 \cos(\theta)}{\sqrt{1-q}}
+    \label{eq:eigenvalues_T}
+\end{align}
+with eigenvectors consisting of q-deformed Hermite polynomials.\\
+We will use the convention
+\begin{align}
+    T \ket{\theta} = E(\theta) \ket{\theta}
+\end{align}
+with the overlap between chord number and energy Hilbert space
+\begin{align}
+    \braket{n}{\theta} = \frac{H_{n}(\cos(\theta)|q)}{\sqrt{(q;q)_{n}}},
+\end{align}
+where $H_n(x|q)$ denote the q-deformed Hermite-polynomials. \colorbox{red}{Appendix????}
+The identity operator in the energy space is taking the form of the integral
+\begin{align}
+    \mathds{1} = \int_{0}^{\pi} d\theta \mu(\theta) \ketbra{\theta}
+\end{align}
+The integration measure $\mu(\theta)$ is included to ensure normalization between the eigenstates and takes the form
+\begin{align}
+    \mu(\theta) = \frac{(q, e^{\pm 2 i \theta};q)_\infty}{2\pi}.
+\end{align}
+Here the convention is used that $(a_1, a_2, \dots, a_n;q)_\infty = (a_1; 1)_\infty \cdot (a_1; 1)_\infty\cdot \dotsc \cdot (a_1; 1)_\infty $ and the $f(\pm \theta)= f(\theta) \cdot f(-\theta)$. \\
+The matter correlators take the form of a double integral:
+\begin{align}
+    \ev{\mathcal{O}(t) \mathcal{O}} = \int_0^\pi d\theta d\phi \mu(\theta) \mu(\phi) e^{it(E(\theta)-E(\phi))} \frac{(q^{2 \Delta};q)_{\infty}}{(q^{\Delta} e^{i(\pm \theta \pm \phi)};q)_\infty}.
+    \label{eq:DSSYK_2pt_fct}
+\end{align}
 
+%This set of orthogonal polynomials solves the recursion relation 
+% \begin{align}
+%     H_n(\mu|q) = 2 \mu \ H_{n-1}(\mu|q) - (1-q^{1-n}) \ H_{n-2}(\mu|q).
+% \end{align}
+% and the overlap between chord number states and eigenvectors of the transfer matrix $T$ are 
+% \begin{align}
+%     \hat{\psi}_n (\cos \theta|q) =\braket{n}{\theta} = \frac{(1-q)^{n/2}}{(q;q)_n} H_n(\cos\theta|q).
+% \end{align}
+% The orthogonality of the q-Hermite polynomials yields
+% \begin{align}
+%     \int_0^\pi H_m(\cos \theta | q) H_n(\cos \theta |q) \left| (e^{2i \theta};q)_\infty \right|^2 d\theta = 2 \pi \frac{(q;q)_n}{(q;q)_\infty} \delta_{mn}
+% \end{align}
 
 %The moments of the Hamiltonian are calculated by summing all the possible chord diagrams with the respective number of Hamiltonians. For each intersection of Hamiltonian chords one assigns powers of $q$ to the diagram (fig. \ref{fig:Chord_Diag_ex}).
 %\begin{figure}
@@ -114,17 +174,54 @@ constant. We also define the parameter $q = e^{-\lambda}$.
 
 \section{A spacetime density kernel for the DSSYK model}
 
+With the above we can find a response tensor $C_{ij;kl}$ for the double scaled SYK. Here we use the special case that for the derivation of the kernel components we use the full system as system $A$ and system $B$. So for the basis elements in $C_{ij;kl}$ we use a trivial $1$ in the complement tensor space of our system.\\
+This gives us the full chord number basis $\hat{E}_{ij}^{A} = \ketbra{i}{j}$ and $\hat{E}_{kl}^{B} = \ketbra{k}{l}$ 
+for the basis states used in \cref{eq:SDK_def}. We will afterwards sum over a subset of components to define the spacetime density kernel $T_{AB}$.
+
 \subsection{Derivation of the DSSYK spacetime density kernel}
 
+For the derivation of the response tensor components we can use the well known solution of the SYK model in the double scaling limit. With the solutions form \cref{subs:DSSYK_basics}, it is straightforward to calculate \cref{eq:SDK_def} for $\{i,j,k,l\}$ being states in the chord number space. We can also exchange the trace and averaging by a simple vacuum expectation value in the auxiliary chord Hilbert space. After this simplifications the response tensor takes the form
 \begin{align}
+    C_{ij;kl} = \ev{{\rho \ketbra{i}{j} e^{iT t} \ketbra{k}{l} e^{-iTt}}}{0}
+\end{align}
+By inserting the identity operator in the energy space representation twice, we reach a closed integral form in terms of 
+\begin{equation}
+    \begin{split}
     C_{ij;kl}(t) = 
-    \ev{0|\rho|i} \int \frac{d\theta d\phi}{(2\pi)^2} \ \mu(\theta) \mu(\phi) \
-    e^{-i t(E(\theta)-E(\phi))} 
-    \frac{H_j(\cos \theta |q) H_k(\cos \phi|q)}{\sqrt{(q;q)_j (q;q)_k}} \ 
-    \frac{H_l(\cos\theta |q)}{\sqrt{(q;q)_l}}
-\nonumber \end{align}
+    \ev{0|\rho|i} \int \frac{d\theta d\phi}{(2\pi)^2} \ & \mu(\theta) \mu(\phi) \
+    e^{-i t(E(\theta)-E(\phi))} \\
+    & \cdot \frac{H_j(\cos \theta |q) H_k(\cos \phi|q)}{\sqrt{(q;q)_j (q;q)_k}} \ 
+    \frac{H_l(\cos\theta |q)}{\sqrt{(q;q)_l}}.
+    \end{split}
+    \label{eq:kernel_integral}
+\end{equation}
+With this we have defined an explicit form of the components of the generalized spacetime density kernel, which we can use to calculate timelike entanglement measures for the double scaling SYK model. In the following we will show that the kernel indeed behaves as we expect.
 
 \subsection{Relation to the two-point function}
+From the definition of the kernel \colorbox{red}{ref{?}} we expect that a simple sum of the kernel components with the components of the operators in the appropriate basis gives us back the two time correlation function of this operator. In DSSYK we can write the components of the operators as a diagonal matrix in the chord space. The components of the matrix $S = \mathrm{diag}(1, q^{\Delta}, q^{2 \Delta}, \dots)$ go into \cref{eq:correlator_from_SDK}, and we choose the chord vacuum state $\rho_0 = \ketbra{0}$ as reference state.
+From this assumptions we get
+\begin{equation}
+    \begin{split}
+    \mathcal{L}_t(\mathcal{O}, \mathcal{O}) = \sum_{ijkl = 0}^{\infty}\braket{0}{i} \int \frac{d\theta d\phi}{(2\pi)^2} \ & \mu(\theta) \mu(\phi) \
+    e^{-i t(E(\theta)-E(\phi))} \\
+    & \cdot \frac{H_j(\cos \theta |q) H_k(\cos \phi|q)}{\sqrt{(q;q)_j (q;q)_k}} \ 
+    \frac{H_l(\cos\theta |q)}{\sqrt{(q;q)_l}} \ \delta_{ij} \delta_{kl} q^{i\Delta} q^{k \Delta}.
+    \end{split}
+\end{equation}
+With the properties of the q-Hermite polynomials \colorbox{red}{Appendix ref!!!}, we have $H_0(x|q) = 1$, $(q;q)_0 = 1$ and are left with a sum over two q-Hermite polynomials. 
+\begin{equation}
+    \begin{split}
+    \mathcal{L}_t(\mathcal{O}, \mathcal{O}) = \int \frac{d\theta d\phi}{(2\pi)^2} \ & \mu(\theta) \mu(\phi) \
+    e^{-i t(E(\theta)-E(\phi))} \\
+    & \cdot \sum_{k = 0}^{\infty} \frac{H_k(\cos \phi|q) H_k(\cos\theta |q)}{(q;q)_k} \ 
+     q^{k \Delta}.
+    \end{split}
+\end{equation}
+Here we can use the orthogonality relations \ref{eq:n_orth_q_Herm} and find the known form of the two point function \cref{eq:DSSYK_2pt_fct} and can confirm
+\begin{align}
+    \sum_{i,j,k,l} C_{ij;kl}(t)\,\mathcal{O}_{ij}\,\mathcal{O}_{kl} = \int_0^\pi d\theta d\phi \mu(\theta) \mu(\phi) e^{it(E(\theta)-E(\phi))} \frac{(q^{2 \Delta};q)_{\infty}}{(q^{\Delta} e^{i(\pm \theta \pm \phi)};q)_\infty}
+\end{align}
+for our DSSYK version of the kernel. 
 
 \subsection{Spectral form factor from kernel}
 
@@ -165,6 +262,18 @@ Topology and Dynamics in Quantum Matter (EXC 2147,
 project-id 390858490), and by the Deutsche Forschungs
 gemeinschaft (DFG) through the Collaborative Research
 centre “ToCoTronics”, Project-ID 258499086-SFB 1170We.}
+
+\section*{Appendix}
+\begin{equation}
+    \begin{split}
+        \sum_{n=0}^{\infty} H_{n}(x|q) H_{n}(y|q) \frac{t^{n}}{(q;q)_{n}} &=
+    \frac{(t^{2};q)_{\infty}}{(t e^{i(\theta + \phi)}, t e^{i(\theta - \phi)}, t e^{-i(\theta + \phi)}, t e^{-i(\theta - \phi)}; q)_{\infty}} 
+    \label{eq:n_orth_q_Herm} \\
+    &=
+    \frac{(t^{2};q)_{\infty}}{(t e^{i(\pm \theta \pm \phi)}; q)_{\infty}}
+    \end{split}
+\end{equation}
+    
 
 \bibliography{bib.bib}
 \bibliographystyle{JHEP}
